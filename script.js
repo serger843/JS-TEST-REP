@@ -4,6 +4,18 @@ var postManager = function () {
    
     //YOUR CODE HERE
     /* You have to order the following posts by userId (Ascending) then add them in a list inside the 'container' */
+    this.posts.sort(function(post1, post2){
+        return post1.userId - post2.userId
+    })
+
+    var listElem = ""
+    this.posts.forEach(function(post, elem){
+        listElem += "<li><h1>"+(post.userId)+" "+post.title+"</h1><p>"+post.body+"</p></li>"
+    })
+
+    document.getElementById("content").innerHTML = "<ul>"+listElem+"</ul>"
+
+    console.log(this.posts)
 };
 
 postManager.prototype.posts = [
